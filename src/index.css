@@ -1,0 +1,396 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   -- modified by mahestro <millanluiseduardo@gmail.com>
+   -- BEM-friendly
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+html {
+  min-height: 100%;
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+body {
+  font-family: "Roboto", Helvetica, arial, sans-serif, Helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #37373B;
+  background-color: #FCFCFE;
+  overflow-x: hidden;
+  text-rendering: geometricPrecision; }
+
+a {
+  color: #0971E6;
+  text-decoration: none; }
+
+/*------------------------------------
+FONTS
+------------------------------------*/
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/roboto-lightitalic.eot");
+  src: url("fonts/roboto/roboto-lightitalic.eot?#iefix") format("embedded-opentype"), url("fonts/roboto/roboto-lightitalic.woff") format("woff"), url("fonts/roboto/roboto-lightitalic.ttf") format("truetype"), url("fonts/roboto/roboto-lightitalic.svg#Roboto") format("svg");
+  font-weight: 300;
+  font-style: italic; }
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/roboto-regular.eot");
+  src: url("fonts/roboto/roboto-regular.eot?#iefix") format("embedded-opentype"), url("fonts/roboto/roboto-regular.woff") format("woff"), url("fonts/roboto/roboto-regular.ttf") format("truetype"), url("fonts/roboto/roboto-regular.svg#Roboto") format("svg");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/roboto-italic.eot");
+  src: url("fonts/roboto/roboto-italic.eot?#iefix") format("embedded-opentype"), url("fonts/roboto/roboto-italic.woff") format("woff"), url("fonts/roboto/roboto-italic.ttf") format("truetype"), url("fonts/roboto/roboto-italic.svg#Roboto") format("svg");
+  font-weight: 400;
+  font-style: italic; }
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/roboto-bold.eot");
+  src: url("fonts/roboto/roboto-bold.eot?#iefix") format("embedded-opentype"), url("fonts/roboto/roboto-bold.woff") format("woff"), url("fonts/roboto/roboto-bold.ttf") format("truetype"), url("fonts/roboto/roboto-bold.svg#Roboto") format("svg");
+  font-weight: 600;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/roboto-bolditalic.eot");
+  src: url("fonts/roboto/roboto-bolditalic.eot?#iefix") format("embedded-opentype"), url("fonts/roboto/roboto-bolditalic.woff") format("woff"), url("fonts/roboto/roboto-bolditalic.ttf") format("truetype"), url("fonts/roboto/roboto-bolditalic.svg#Roboto") format("svg");
+  font-weight: 600;
+  font-style: italic; }
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/roboto-black.eot");
+  src: url("fonts/roboto/roboto-black.eot?#iefix") format("embedded-opentype"), url("fonts/roboto/roboto-black.woff") format("woff"), url("fonts/roboto/roboto-black.ttf") format("truetype"), url("fonts/roboto/roboto-black.svg#Roboto") format("svg");
+  font-weight: 800;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto/roboto-blackitalic.eot");
+  src: url("fonts/roboto/roboto-blackitalic.eot?#iefix") format("embedded-opentype"), url("fonts/roboto/roboto-blackitalic.woff") format("woff"), url("fonts/roboto/roboto-blackitalic.ttf") format("truetype"), url("fonts/roboto/roboto-blackitalic.svg#Roboto") format("svg");
+  font-weight: 800;
+  font-style: italic; }
+
+/*------------------------------------
+TYPOGRAPHY
+------------------------------------*/
+.color--white {
+  color: #FFF; }
+
+.color--grey {
+  color: #787882; }
+
+h1 {
+  font-family: "Roboto", Helvetica, arial, sans-serif;
+  font-size: 78px;
+  line-height: 84px;
+  font-weight: 300; }
+
+h2 {
+  font-family: "Roboto", Helvetica, arial, sans-serif;
+  font-size: 58px;
+  line-height: 72px;
+  font-weight: 400; }
+
+h3 {
+  font-family: "Roboto", Helvetica, arial, sans-serif;
+  font-size: 46px;
+  line-height: 60px;
+  font-weight: 400; }
+
+h4 {
+  font-family: "Roboto", Helvetica, arial, sans-serif;
+  font-size: 34px;
+  line-height: 48px;
+  font-weight: 800; }
+
+h5 {
+  font-family: "Roboto", Helvetica, arial, sans-serif;
+  font-size: 26px;
+  line-height: 36px;
+  font-weight: 800; }
+
+.typography-lead {
+  font-family: "Roboto", Helvetica, arial, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #0971E6; }
+
+.typography-body, p {
+  font-family: "Roboto", Helvetica, arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400; }
+
+.typography-caption {
+  font-family: "Roboto", Helvetica, arial, sans-serif;
+  font-size: 12px;
+  line-height: 24px;
+  font-weight: 400; }
+
+.typography-small {
+  font-family: "Roboto", Helvetica, arial, sans-serif;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400; }
+
+/*------------------------------------
+LAYOUT
+------------------------------------*/
+.wrapper {
+  width: 960px;
+  margin: 0 auto; }
+
+strong {
+  font-weight: 600; }
+
+input, textarea {
+  font-family: "Roboto", Helvetica, arial, sans-serif; }
+
+.textfield {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 10px;
+  background-color: #fff;
+  border: solid 1px #E6E6E6;
+  border-radius: 2px;
+  font-size: 16px;
+  color: #4f4f4f; }
+
+.textarea {
+  width: 100%;
+  height: 100px;
+  padding: 5px 10px;
+  background-color: #fff;
+  border: solid 1px #E6E6E6;
+  border-radius: 2px;
+  font-size: 16px;
+  color: #4f4f4f; }
+
+.textfield::placeholder,
+.textarea::placeholder {
+  color: #d2d2d2; }
+
+/*------------------------------------
+LINKS
+------------------------------------*/
+.link {
+  color: #0971E6;
+  text-decoration: none; }
+  .link .icon {
+    margin-left: 5px; }
+
+.link:hover,
+.link:focus {
+  color: #787882;
+  text-decoration: underline; }
+  .link:hover .icon,
+  .link:focus .icon {
+    fill: #787882; }
+
+.link:active {
+  color: #9050A3; }
+
+/*------------------------------------
+BUTTONS
+------------------------------------*/
+.button {
+  font-family: "Roboto", Helvetica, arial, sans-serif;
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+  border-radius: 2px;
+  user-select: none;
+  cursor: pointer; }
+
+.button--submit {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  font-weight: normal;
+  background-color: #1abb83;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer; }
+
+.button--submit:hover,
+.button--submit:focus {
+  background-color: #28da9c;
+  border-bottom: solid 2px #1abb83; }
+
+.button--submit:active {
+  background-color: #16af7a; }
+
+.button--submit[disabled] {
+  background-color: #f8f8f8;
+  color: #a2a2a2;
+  cursor: progress; }
+
+.button--submit[disabled]:hover {
+  border: none; }
+
+/*------------------------------------
+ICONS
+------------------------------------*/
+.icon {
+  display: inline-block;
+  fill: #37373B; }
+
+.icon--xsmall {
+  width: 14px;
+  height: 14px; }
+
+.icon--small {
+  width: 24px;
+  height: 24px; }
+
+.icon--regular {
+  width: 36px;
+  height: 36px; }
+
+.icon--request,
+.icon--heartbroken {
+  fill: #60C702; }
+
+/*------------------------------------
+HELPERS
+------------------------------------*/
+.hide {
+  display: none; }

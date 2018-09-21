@@ -1,0 +1,29 @@
+// Font variables
+
+$font-primary:                     'Roboto';
+$font-primary-weight-light:        300;
+$font-primary-weight-regular:      400;
+$font-primary-weight-medium:       600;
+$font-primary-weight-bold:         800;
+$font-primary-stack:               $font-primary, Helvetica, arial, sans-serif;
+
+// Content sizing
+
+$h1-size:                          78px;
+$h1-lineheight:                    84px;
+$h2-size:                          58px;
+$h2-lineheight:                    72px;
+$h3-size:                          46px;
+$h3-lineheight:                    60px;
+$h4-size:                          34px;
+$h4-lineheight:                    48px;
+$h5-size:                          26px;
+$h5-lineheight:                    36px;
+$lead-size:                        20px;
+$lead-lineheight:                  24px;
+$body-size:                        16px;
+$body-lineheight:                  24px;
+$caption-size:                     12px;
+$caption-lineheight:               24px;
+$small-size:                       10px;
+$small-lineheight:                 12px;

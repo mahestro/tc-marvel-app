@@ -1,0 +1,19 @@
+// Fonts
+@mixin font-family($font-name, $font-weight, $font-style, $font-url, $font-file) {
+  @font-face {
+    font-family: '#{$font-name}';
+    src: url('#{$font-url}#{$font-file}.eot');
+    src: url('#{$font-url}#{$font-file}.eot?#iefix') format('embedded-opentype'),
+         url('#{$font-url}#{$font-file}.woff') format('woff'),
+         url('#{$font-url}#{$font-file}.ttf') format('truetype'),
+         url('#{$font-url}#{$font-file}.svg##{$font-name}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+// Sprite
+
+@mixin background-position($row, $column) {
+	background-position: $sprite-grid-icon * ($column - 1) * -1 $sprite-grid-icon * ($row - 1) * -1;
+}
