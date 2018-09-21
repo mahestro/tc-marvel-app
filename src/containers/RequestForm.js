@@ -5,9 +5,8 @@ class RequestForm extends Component {
   render() {
     return (
       <div>
-        <Icon
-          id="request"
-          className="icon--xlarge" />
+        <h4>MarvelApp Request</h4>
+        Email address:
       </div>
     );
   }
