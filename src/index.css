@@ -385,6 +385,10 @@ ICONS
   width: 36px;
   height: 36px; }
 
+.icon--xlarge {
+  width: 120px;
+  height: 120px; }
+
 .icon--request,
 .icon--heartbroken {
   fill: #60C702; }
