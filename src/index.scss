@@ -34,14 +34,6 @@ FONTS
 TYPOGRAPHY
 ------------------------------------*/
 
-.color--white {
-  color: $color-white;
-}
-
-.color--grey {
-  color: $color-grey;
-}
-
 h1 {
   font-family: $font-primary-stack;
   font-size:   $h1-size;
@@ -106,19 +98,24 @@ h5 {
   font-weight: $font-primary-weight-regular;
 }
 
+strong {
+  font-weight: $font-primary-weight-medium;
+}
+
 
 /*------------------------------------
 LAYOUT
 ------------------------------------*/
 
 .wrapper {
-  width:  960px;
+  width:  400px;
   margin: 0 auto;
 }
 
-strong {
-  font-weight: $font-primary-weight-medium;
-}
+
+/*------------------------------------
+FORM
+------------------------------------*/
 
 input, textarea {
   font-family: $font-primary-stack;

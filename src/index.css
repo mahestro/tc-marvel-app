@@ -206,12 +206,6 @@ FONTS
 /*------------------------------------
 TYPOGRAPHY
 ------------------------------------*/
-.color--white {
-  color: #FFF; }
-
-.color--grey {
-  color: #787882; }
-
 h1 {
   font-family: "Roboto", Helvetica, arial, sans-serif;
   font-size: 78px;
@@ -267,16 +261,19 @@ h5 {
   line-height: 12px;
   font-weight: 400; }
 
+strong {
+  font-weight: 600; }
+
 /*------------------------------------
 LAYOUT
 ------------------------------------*/
 .wrapper {
-  width: 960px;
+  width: 400px;
   margin: 0 auto; }
 
-strong {
-  font-weight: 600; }
-
+/*------------------------------------
+FORM
+------------------------------------*/
 input, textarea {
   font-family: "Roboto", Helvetica, arial, sans-serif; }
 
