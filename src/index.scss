@@ -73,8 +73,8 @@ h5 {
   font-family: $font-primary-stack;
   font-size:   $lead-size;
   line-height: $lead-lineheight;
-  font-weight: $font-primary-weight-regular;
-  color:       $color-primary;
+  font-weight: $font-primary-weight-bold;
+  color:       $color-black;
 }
 
 .typography-body, p {
@@ -82,6 +82,7 @@ h5 {
   font-size:   $body-size;
   line-height: $body-lineheight;
   font-weight: $font-primary-weight-regular;
+  padding-top: $base-unit * 4;
 }
 
 .typography-caption {
@@ -112,41 +113,128 @@ LAYOUT
   margin: 0 auto;
 }
 
+.wrapper--form {
+  margin-top: $base-unit * 8;
+}
+
+header {
+  height:           $base-unit * 32;
+  background-color: $color-lighter-grey;
+  border-bottom:    solid 1px $color-shadow;
+
+  .typography-lead {
+    font-weight: $font-primary-weight-regular;
+  }
+
+  .logo-wrapper {
+    padding-top:     $base-unit * 10;
+    display:         flex;
+    justify-content: center;
+    align-items:     center;
+
+    span {
+      display: inline-block;
+      color:   $color-light-grey;
+      margin:  0 $base-unit * 5;
+      @extend .typography-lead;
+    }
+  }
+
+  .title {
+    padding-top: $base-unit * 5;
+    text-align:  center;
+    color:       $color-grey;
+  }
+}
+
+section.form,
+section.message {
+  @extend .wrapper;
+  padding-top: $base-unit * 16;
+}
+
+section.message {
+  text-align: center;
+
+  h5 {
+    margin: $base-unit * 8 0 $base-unit * 4;
+  }
+}
+
+.message-img-wrapper {
+  margin: $base-unit * 5 auto;
+  text-align: center;
+}
+
+.sep {
+  content:          ' ';
+  margin:           $base-unit * 12 auto;
+  width:            70px;
+  height:           1px;
+  background-color: $color-light-grey
+}
 
 /*------------------------------------
 FORM
 ------------------------------------*/
+
+.form__field {
+  margin-top: $base-unit * 3;
+  color:      $color-grey;
+}
+
+.form__field--error input[type="text"] {
+  border-color: $color-error;
+}
+
+.form__label {
+  margin-bottom: $base-unit * 2;
+}
+
+.form__field__alert {
+  color:       $color-error;
+  padding-top: $base-unit;
+}
+
+.input-required {
+  font-weight: $font-primary-weight-bold;
+  color:       $color-secondary;
+}
+
+.form__submit-area {
+  margin-top: $base-unit * 4;
+}
 
 input, textarea {
   font-family: $font-primary-stack;
 }
 
 .textfield {
-  width: 100%;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 10px;
-  background-color: #fff;
-  border: solid 1px #E6E6E6;
-  border-radius: 2px;
-  font-size: 16px;
-  color: #4f4f4f;
+  width:            100%;
+  height:           $base-unit * 10;
+  line-height:      $base-unit * 10;
+  padding:          0 $base-unit * 5;
+  background-color: $color-white;
+  border:           solid 1px $color-light-grey;
+  border-radius:    $corner-radius * 2;
+  font-size:        $body-size;
+  color:            $color-grey;
 }
 
 .textarea {
-  width: 100%;
-  height: 100px;
-  padding: 5px 10px;
-  background-color: #fff;
-  border: solid 1px #E6E6E6;
-  border-radius: 2px;
-  font-size: 16px;
-  color: #4f4f4f;
+  width:            100%;
+  height:           $base-unit * 20;
+  padding:          $base-unit * 5;
+  background-color: $color-white;
+  border:           solid 1px $color-light-grey;
+  border-radius:    $corner-radius * 2;
+  font-size:        $body-size;
+  color:            $color-grey;
 }
 
 .textfield::placeholder,
 .textarea::placeholder {
-  color: #d2d2d2;
+  color: $color-light-grey;
 }
 
 
@@ -182,42 +270,35 @@ BUTTONS
 ------------------------------------*/
 
 .button {
-  font-family: $font-primary-stack;
-  height: 50px;
-  line-height: 50px;
-  font-size: 16px;
-  font-weight: normal;
-  text-align: center;
-  border-radius: 2px;
-  user-select: none;
-  cursor: pointer;
+  font-family:   $font-primary-stack;
+  height:        $base-unit * 10;
+  line-height:   $base-unit * 10;
+  font-size:     $body-size;
+  font-weight:   $font-primary-weight-bold;
+  text-align:    center;
+  border-radius: $corner-radius * 2;
+  user-select:   none;
+  cursor:        pointer;
+  border:        none;
 }
 
 .button--submit {
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  font-size: 20px;
-  font-weight: normal;
-  background-color: #1abb83;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
+  width:            100%;
+  background-color: $color-primary;
+  color:            $color-white;
 }
 
 .button--submit:hover,
 .button--submit:focus {
-  background-color: #28da9c;
-  border-bottom: solid 2px #1abb83;
+  background-color: $color-primary-shade-01;
 }
 
 .button--submit:active {
-  background-color: #16af7a;
+  background-color: $color-primary-shade-01;
 }
 
 .button--submit[disabled] {
-  background-color: #f8f8f8;
-  color: #a2a2a2;
+  background-color: $color-light-grey;
   cursor: progress;
 }
 
@@ -254,9 +335,12 @@ ICONS
   height: 120px;
 }
 
-.icon--request,
-.icon--heartbroken {
+.icon--request {
   fill: $color-success;
+}
+
+.icon--heartbroken {
+  fill: $color-error;
 }
 
 /*------------------------------------
@@ -269,13 +353,13 @@ HELPERS
 
 %img.img-vertical-middle {
 	max-height: 100%;
-	max-width : 100%;
-	width     : auto;
-	height    : auto;
-	position  : absolute;
-	top       : 0;
-	bottom    : 0;
-	left      : 0;
-	right     : 0;
-	margin    : auto;
+	max-width:  100%;
+	width:      auto;
+	height:     auto;
+	position:   absolute;
+	top:        0;
+	bottom:     0;
+	left:       0;
+	right:      0;
+	margin:     auto;
 }

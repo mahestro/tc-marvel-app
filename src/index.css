@@ -236,18 +236,19 @@ h5 {
   line-height: 36px;
   font-weight: 800; }
 
-.typography-lead {
+.typography-lead, header .logo-wrapper span {
   font-family: "Roboto", Helvetica, arial, sans-serif;
   font-size: 20px;
   line-height: 24px;
-  font-weight: 400;
-  color: #0971E6; }
+  font-weight: 800;
+  color: #37373B; }
 
 .typography-body, p {
   font-family: "Roboto", Helvetica, arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
-  font-weight: 400; }
+  font-weight: 400;
+  padding-top: 20px; }
 
 .typography-caption {
   font-family: "Roboto", Helvetica, arial, sans-serif;
@@ -267,13 +268,78 @@ strong {
 /*------------------------------------
 LAYOUT
 ------------------------------------*/
-.wrapper {
+.wrapper, section.form,
+section.message {
   width: 400px;
   margin: 0 auto; }
+
+.wrapper--form {
+  margin-top: 40px; }
+
+header {
+  height: 160px;
+  background-color: #FCFCFE;
+  border-bottom: solid 1px #F0F0F2; }
+  header .typography-lead, header .logo-wrapper span {
+    font-weight: 400; }
+  header .logo-wrapper {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    header .logo-wrapper span {
+      display: inline-block;
+      color: #C3C3C7;
+      margin: 0 25px; }
+  header .title {
+    padding-top: 25px;
+    text-align: center;
+    color: #787882; }
+
+section.form,
+section.message {
+  padding-top: 80px; }
+
+section.message {
+  text-align: center; }
+  section.message h5 {
+    margin: 40px 0 20px; }
+
+.message-img-wrapper {
+  margin: 25px auto;
+  text-align: center; }
+
+.sep {
+  content: ' ';
+  margin: 60px auto;
+  width: 70px;
+  height: 1px;
+  background-color: #C3C3C7; }
 
 /*------------------------------------
 FORM
 ------------------------------------*/
+.form__field {
+  margin-top: 15px;
+  color: #787882; }
+
+.form__field--error input[type="text"] {
+  border-color: #F22E24; }
+
+.form__label {
+  margin-bottom: 10px; }
+
+.form__field__alert {
+  color: #F22E24;
+  padding-top: 5px; }
+
+.input-required {
+  font-weight: 800;
+  color: #FB7D21; }
+
+.form__submit-area {
+  margin-top: 20px; }
+
 input, textarea {
   font-family: "Roboto", Helvetica, arial, sans-serif; }
 
@@ -281,26 +347,26 @@ input, textarea {
   width: 100%;
   height: 50px;
   line-height: 50px;
-  padding: 0 10px;
-  background-color: #fff;
-  border: solid 1px #E6E6E6;
-  border-radius: 2px;
+  padding: 0 25px;
+  background-color: #FFF;
+  border: solid 1px #C3C3C7;
+  border-radius: 4px;
   font-size: 16px;
-  color: #4f4f4f; }
+  color: #787882; }
 
 .textarea {
   width: 100%;
   height: 100px;
-  padding: 5px 10px;
-  background-color: #fff;
-  border: solid 1px #E6E6E6;
-  border-radius: 2px;
+  padding: 25px;
+  background-color: #FFF;
+  border: solid 1px #C3C3C7;
+  border-radius: 4px;
   font-size: 16px;
-  color: #4f4f4f; }
+  color: #787882; }
 
 .textfield::placeholder,
 .textarea::placeholder {
-  color: #d2d2d2; }
+  color: #C3C3C7; }
 
 /*------------------------------------
 LINKS
@@ -330,34 +396,27 @@ BUTTONS
   height: 50px;
   line-height: 50px;
   font-size: 16px;
-  font-weight: normal;
+  font-weight: 800;
   text-align: center;
-  border-radius: 2px;
+  border-radius: 4px;
   user-select: none;
-  cursor: pointer; }
+  cursor: pointer;
+  border: none; }
 
 .button--submit {
   width: 100%;
-  height: 60px;
-  line-height: 60px;
-  font-size: 20px;
-  font-weight: normal;
-  background-color: #1abb83;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer; }
+  background-color: #0971E6;
+  color: #FFF; }
 
 .button--submit:hover,
 .button--submit:focus {
-  background-color: #28da9c;
-  border-bottom: solid 2px #1abb83; }
+  background-color: #3386e3; }
 
 .button--submit:active {
-  background-color: #16af7a; }
+  background-color: #3386e3; }
 
 .button--submit[disabled] {
-  background-color: #f8f8f8;
-  color: #a2a2a2;
+  background-color: #C3C3C7;
   cursor: progress; }
 
 .button--submit[disabled]:hover {
@@ -386,9 +445,11 @@ ICONS
   width: 120px;
   height: 120px; }
 
-.icon--request,
-.icon--heartbroken {
+.icon--request {
   fill: #60C702; }
+
+.icon--heartbroken {
+  fill: #F22E24; }
 
 /*------------------------------------
 HELPERS
