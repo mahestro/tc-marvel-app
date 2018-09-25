@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
 import RequestSuccess from './RequestSuccess';
 import RequestError from './RequestError';
 import TextField from '../components/TextField'
+import { TCMARVEL_API_BASE_URL, MAIL_SENDER, MAIL_RECEIVER } from '../constants/config';
 
 class RequestForm extends Component {
   constructor(props) {
@@ -13,7 +15,8 @@ class RequestForm extends Component {
       },
       errors: {},
       saving: false,
-      saved: true
+      saved: false,
+      exception: false
     }
   }
 
@@ -24,6 +27,37 @@ class RequestForm extends Component {
       return;
 
     this.setState({saving: true});
+
+    const data = {
+      message: {
+        to: MAIL_RECEIVER,
+        from: MAIL_SENDER,
+        subject: `Marvelapp Request - ${this.props.challengeId} - ${this.props.challengeTitle}`,
+        text: `Request from ${this.state.request.tcHandle}, email: ${this.state.request.email}`
+      }
+    };
+
+    const postConfig = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    };
+
+    fetch(`${TCMARVEL_API_BASE_URL}/mail`, postConfig)
+      .then(res => res.json())
+      .then(res => {
+        if (res.success) {
+          this.setState({saved: true});
+        } else {
+          this.setState({exception: true});
+        }
+      })
+      .catch(err => {
+        this.setState({exception: true});
+        console.log(`Error sending email: ${err}`);
+      });
   }
 
   handleTextfield = e => {
@@ -39,12 +73,12 @@ class RequestForm extends Component {
 
     if (this.state.request.email.trim() === '') {
       formIsValid = false;
-      errors.email = 'Email is a required field. Please enter your email address';
+      errors.email = 'Email is required. Please enter your email address';
     }
 
     if (this.state.request.tcHandle.trim() === '') {
       formIsValid = false;
-      errors.tcHandle = 'Topcoder handle is a required field. Please enter your Topcoder handle';
+      errors.tcHandle = 'Topcoder handle is required. Please enter your Topcoder handle';
     }
 
     this.setState({errors});
@@ -53,13 +87,20 @@ class RequestForm extends Component {
 
   render() {
     const { email, tcHandle } = this.state.request;
-    const { errors, saving, saved } = this.state;
+    const { errors, saving, saved, exception } = this.state;
 
     return (
       <div>
         {
-          saved ?
-          <RequestError />:
+          exception && <RequestError />
+        }
+
+        {
+          saved && <RequestSuccess />
+        }
+
+        {
+          !saved && !exception  &&
           <section className="form">
             <h5>MarvelApp Request</h5>
 
@@ -97,5 +138,10 @@ class RequestForm extends Component {
     );
   }
 }
+
+RequestForm.propTypes = {
+  challengeId: PropTypes.number.isRequired,
+  challengeTitle: PropTypes.string.isRequired
+};
 
 export default RequestForm;

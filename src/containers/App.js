@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import Header from '../components/Header';
-import RequestForm from './RequestForm';
+import { Switch, Route } from 'react-router-dom';
+import Request from './Request';
+import RequestError from './RequestError';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Header title="Autocognita" />
-        <RequestForm />
-      </div>
+      <Switch>
+        <Route
+          exact
+          path="/challenge/:challengeId"
+          component={Request} />
+        <Route
+          path="/error"
+          component={RequestError} />
+      </Switch>
     );
   }
 }
