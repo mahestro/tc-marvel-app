@@ -1,5 +1,4 @@
-//const isProduction = process.env.NODE_ENV === 'production';
-const isProduction = true;
+const isProduction = process.env.NODE_ENV === 'production';
 
 export const TCMARVEL_API_BASE_URL = isProduction ? 'https://tc-marvel-api.herokuapp.com/api' : 'http://localhost:3001/api';
 export const TC_API_BASE_URL = 'https://api.topcoder.com';
