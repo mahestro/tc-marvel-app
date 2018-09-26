@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from '../components/Icon';
+import imgGif from '../i/marvelapp-declaration.gif';
 
 const RequestSuccess = () => {
   return (
@@ -26,7 +27,7 @@ const RequestSuccess = () => {
       </section>
 
       <div className="message-img-wrapper">
-        <img src="#" width="720" alt="Share marvelapp link" />
+        <img src={imgGif} width="600" alt="Share marvelapp link" />
       </div>
     </div>
   );
