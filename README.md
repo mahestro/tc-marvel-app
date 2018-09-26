@@ -4,5 +4,5 @@ Frontend for tc-marvelapp connector. Managing marvelapp requests from Topcoder m
 ---
 
 
-## Version 1.0
-Simple email request. Manual processing. 
+## Version 2.0
+Marvelapp API integration for requests and dashboard management. Env variables for simple password. 

@@ -39,6 +39,18 @@ const TextField = ({type, label, required, name, placeholder, value, onChange, e
             onChange={onChange} />
         );
 
+      case 'password':
+        return (
+          <input
+            name={name}
+            id={name}
+            className="textfield"
+            type="password"
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange} />
+        );
+
       default: break;
     }
   };
