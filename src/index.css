@@ -143,7 +143,7 @@ body {
   font-size: 16px;
   line-height: 24px;
   color: #37373B;
-  background-color: #FCFCFE;
+  background-color: #FFF;
   overflow-x: hidden;
   text-rendering: geometricPrecision; }
 
@@ -392,6 +392,7 @@ LINKS
 BUTTONS
 ------------------------------------*/
 .button {
+  position: relative;
   font-family: "Roboto", Helvetica, arial, sans-serif;
   height: 50px;
   line-height: 50px;
@@ -402,6 +403,20 @@ BUTTONS
   user-select: none;
   cursor: pointer;
   border: none; }
+
+.button-progress:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -10px;
+  width: 25px;
+  height: 25px;
+  border: 3px solid #FCFCFE;
+  border-bottom: 3px solid transparent;
+  border-radius: 50%;
+  animation: icon-spin 2s linear infinite; }
 
 .button--submit {
   width: 100%;
@@ -456,3 +471,12 @@ HELPERS
 ------------------------------------*/
 .hide {
   display: none; }
+
+/*------------------------------------
+ANIMATIONS
+------------------------------------*/
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }

@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import RequestSuccess from './RequestSuccess';
 import RequestError from './RequestError';
 import TextField from '../components/TextField'
+import Button from '../components/Button'
 import { TCMARVEL_API_BASE_URL, MAIL_SENDER, MAIL_RECEIVER } from '../constants/config';
 
 class RequestForm extends Component {
@@ -127,7 +128,9 @@ class RequestForm extends Component {
                   onChange={this.handleTextfield} />
 
                 <div className="form__submit-area">
-                  <input className="button button--submit" type="submit" value="Send Request" disabled={saving} />
+                  <Button
+                    label="Send Request"
+                    progress={saving} />
                 </div>
 
               </form>
