@@ -20,10 +20,13 @@ const RequestSuccess = () => {
         <p>
           Add sreens to your marvelapp presentation and provide the shareable link in your declaration notes.
         </p>
+        <p>
+          See <a href="http://take.ms/AEyR9">video example</a>.
+        </p>
       </section>
 
       <div className="message-img-wrapper">
-        <img src="https://api.monosnap.com/rpc/file/download?id=SpcCE3v4VPwZ6tgQmE3Jb9qagAeFtA" width="540" alt="Share marvelapp link" />
+        <img src="#" width="720" alt="Share marvelapp link" />
       </div>
     </div>
   );

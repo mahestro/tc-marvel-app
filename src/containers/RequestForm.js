@@ -16,7 +16,7 @@ class RequestForm extends Component {
       },
       errors: {},
       saving: false,
-      saved: false,
+      saved: true,
       exception: false
     }
   }
