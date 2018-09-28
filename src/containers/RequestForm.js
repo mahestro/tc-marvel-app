@@ -5,7 +5,7 @@ import RequestSuccess from './RequestSuccess';
 import RequestError from './RequestError';
 import TextField from '../components/TextField'
 import Button from '../components/Button'
-import { TCMARVEL_API_BASE_URL, MAIL_SENDER, MAIL_RECEIVER } from '../constants/config';
+import { TCMARVEL_API_BASE_URL, MAIL_RECEIVER } from '../constants/config';
 import * as siteActions from '../actions/siteActions';
 
 class RequestForm extends Component {
@@ -42,8 +42,8 @@ class RequestForm extends Component {
     const data = {
       message: {
         to: MAIL_RECEIVER,
-        from: MAIL_SENDER,
-        subject: `Marvelapp Request - ${this.props.challengeId} - ${this.props.challengeTitle}`,
+        from: this.state.request.email,
+        subject: `Marvelapp Request - ${this.props.challengeTitle}`,
         text: `Request from ${this.state.request.tcHandle}, email: ${this.state.request.email}`
       }
     };
@@ -152,10 +152,16 @@ class RequestForm extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    challengeTitle: state.site.mainTitle
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     actions: bindActionCreators(siteActions, dispatch)
   };
 };
 
-export default connect(null, mapDispatchToProps)(RequestForm);
+export default connect(mapStateToProps, mapDispatchToProps)(RequestForm);

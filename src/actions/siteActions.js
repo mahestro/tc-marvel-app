@@ -44,7 +44,6 @@ export function loadChallengeTitle(challengeId) {
       return superagent.get(`${TC_API_BASE_URL}/v3/challenges/${challengeId}`)
         .end((err, res) => {
           if (err) return;
-          console.log(res.body);
 
           dispatch(setMainTitleSuccess(res.body.result.content.challengeName));
         });
