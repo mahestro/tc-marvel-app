@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router';
+import * as Routes from '../constants/routes';
 
 const PrivateRoute = ({ component: Component, authenticated, ...rest }) => (
   <Route
@@ -10,7 +11,7 @@ const PrivateRoute = ({ component: Component, authenticated, ...rest }) => (
       ) : (
         <Redirect
           to={{
-            pathname: "/login",
+            pathname: Routes.LOGIN,
             state: { from: props.location }
           }}
         />

@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import PrivateRoute from '../components/PrivateRoute';
 import Dashboard from './Dashboard';
+import TeamsList from './TeamsList';
 import RequestForm from './RequestForm';
 import Login from './Login';
 import RequestError from './RequestError';
 import Header from '../components/Header';
+import * as Routes from '../constants/routes';
 
 class App extends Component {
   render() {
@@ -15,18 +17,23 @@ class App extends Component {
         <Header />
         <Switch>
           <Route
-            path="/login"
+            path={Routes.LOGIN}
             component={Login} />
           <Route
-            path="/challenge/:challengeId"
+            path={Routes.REQUEST}
             component={RequestForm} />
           <Route
-            path="/error"
+            path={Routes.ERROR}
             component={RequestError} />
           <PrivateRoute
+            exact
             authenticated={this.props.isAuthenticated}
-            path="/dashboard"
+            path={Routes.DASHBOARD}
             component={Dashboard} />
+          <PrivateRoute
+            authenticated={this.props.isAuthenticated}
+            path={Routes.TEAMS}
+            component={TeamsList} />
         </Switch>
       </div>
     );
