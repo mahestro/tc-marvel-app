@@ -1,12 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router';
 import * as Routes from '../constants/routes';
 
-const PrivateRoute = ({ component: Component, authenticated, ...rest }) => (
+const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={(props) =>
-        authenticated ? (
+    render={props =>
+        rest.isAuthenticated ? (
         <Component {...props} />
       ) : (
         <Redirect
@@ -20,4 +21,10 @@ const PrivateRoute = ({ component: Component, authenticated, ...rest }) => (
   />
 );
 
-export default PrivateRoute;
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.site.isAuthenticated
+  };
+};
+
+export default connect(mapStateToProps, null, null, {pure: false})(PrivateRoute);

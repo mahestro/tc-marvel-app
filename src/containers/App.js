@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import PrivateRoute from '../components/PrivateRoute';
 import Dashboard from './Dashboard';
@@ -27,23 +26,16 @@ class App extends Component {
             component={RequestError} />
           <PrivateRoute
             exact
-            authenticated={this.props.isAuthenticated}
             path={Routes.DASHBOARD}
             component={Dashboard} />
-          <PrivateRoute
+          {/* <PrivateRoute
             authenticated={this.props.isAuthenticated}
             path={Routes.TEAMS}
-            component={TeamsList} />
+            component={TeamsList} /> */}
         </Switch>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    isAuthenticated: state.site.isAuthenticated
-  };
-};
-
-export default connect(mapStateToProps, null, null, {pure: false})(App);
+export default App;
