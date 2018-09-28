@@ -1,7 +1,8 @@
 import * as types from '../constants/actionTypes';
 
 const defaultState = {
-  authenticated: false,
+  isAuthenticated: false,
+  mainTitle: '',
   projectTypes: [],
   targetDevices: []
 };
@@ -11,7 +12,13 @@ export default function siteReducer(state = defaultState, action) {
     case types.AUTHENTICATE_USER_SUCCESS:
       return {
         ...state,
-        authenticated: action.payload
+        isAuthenticated: action.payload
+      };
+
+    case types.UPDATE_MAIN_TITLE_SUCCESSS:
+      return {
+        ...state,
+        mainTitle: action.payload
       };
 
     case types.LOAD_PROJECT_TYPES:

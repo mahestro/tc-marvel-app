@@ -17,6 +17,10 @@ class Login extends Component {
     }
   }
 
+  componentDidMount() {
+    this.props.actions.setMainTitle('Hey Hacker! You found me');
+  }
+
   onSubmit = e => {
     e.preventDefault();
 

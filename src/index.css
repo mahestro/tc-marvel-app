@@ -276,6 +276,9 @@ section.message {
 .wrapper--form {
   margin-top: 40px; }
 
+.wrapper--listing {
+  margin-top: 30px; }
+
 header {
   height: 160px;
   background-color: #FCFCFE;

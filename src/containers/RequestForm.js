@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import RequestSuccess from './RequestSuccess';
 import RequestError from './RequestError';
 import TextField from '../components/TextField'
 import Button from '../components/Button'
 import { TCMARVEL_API_BASE_URL, MAIL_SENDER, MAIL_RECEIVER } from '../constants/config';
+import * as siteActions from '../actions/siteActions';
 
 class RequestForm extends Component {
   constructor(props) {
@@ -18,6 +21,14 @@ class RequestForm extends Component {
       saving: false,
       saved: false,
       exception: false
+    }
+  }
+
+  componentDidMount() {
+    if (!isNaN(this.props.match.params.challengeId)) {
+      const challengeId = Number.parseInt(this.props.match.params.challengeId, 10);
+
+      this.props.actions.loadChallengeTitle(challengeId);
     }
   }
 
@@ -142,9 +153,10 @@ class RequestForm extends Component {
   }
 }
 
-RequestForm.propTypes = {
-  challengeId: PropTypes.number.isRequired,
-  challengeTitle: PropTypes.string.isRequired
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators(siteActions, dispatch)
+  };
 };
 
-export default RequestForm;
+export default connect(null, mapDispatchToProps)(RequestForm);

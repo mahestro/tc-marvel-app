@@ -1,9 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import logoTopcoder from '../i/topcoder-logo.svg';
 import logoMarvel from '../i/marvel-logo.svg';
 
-const Header = ({title}) => {
+const Header = ({mainTitle}) => {
   return (
     <header>
       <div className="wrapper logo-wrapper">
@@ -12,18 +13,24 @@ const Header = ({title}) => {
         <img src={logoMarvel} alt="Marvelapp" />
       </div>
       <div className="title">
-        {title}
+        {mainTitle}
       </div>
     </header>
   );
 };
 
 Header.defaultProps = {
-  title: 'Topcoder Challenge'
+  title: ''
 };
 
 Header.propTypes = {
   title: PropTypes.string.isRequired
 };
 
-export default Header;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    mainTitle: ownProps.title && ownProps.title !== '' ? ownProps.title : state.site.mainTitle
+  };
+};
+
+export default connect(mapStateToProps)(Header);

@@ -5,7 +5,7 @@ const Button = ({label, className, disabled, progress}) => {
   const wrapperClass = progress ? `${className} button-progress` : className;
 
   return (
-    <button className={wrapperClass} disabled={disabled || progress}>
+    <button type="submit" className={wrapperClass} disabled={disabled || progress}>
       {label}
     </button>
   );

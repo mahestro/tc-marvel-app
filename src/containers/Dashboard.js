@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
+import { Switch, Route } from 'react-router';
 import Header from '../components/Header';
-import Teams from './Teams';
+import TeamsList from './TeamsList';
+import PrototypesList from './PrototypesList';
 
 class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Header title="Topcoder Marvelapp - Prototype Management" />
-          <Route
-            path="/dashboard/teams" Component={Teams} />
+        <Switch>
+          <Route path="/dashboard/teams" Component={TeamsList} />
+          <Route path="/dashboard/teams/:teamId/prototypes/" Component={PrototypesList} />
+        </Switch>
       </div>
     );
   }

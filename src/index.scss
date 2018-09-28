@@ -117,6 +117,10 @@ LAYOUT
   margin-top: $base-unit * 8;
 }
 
+.wrapper--listing {
+  margin-top: $base-unit * 6;
+}
+
 header {
   height:           $base-unit * 32;
   background-color: $color-lighter-grey;
