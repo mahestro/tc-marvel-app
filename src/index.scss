@@ -178,6 +178,60 @@ section.message {
   background-color: $color-light-grey
 }
 
+.list__title {
+  display:         flex;
+  flex-wrap:       nowrap;
+  justify-content: space-between;
+  align-items:     baseline;
+}
+
+.card {
+  display:         flex;
+  flex-wrap:       nowrap;
+  justify-content: space-between;
+  border:          1px solid $color-light-grey;
+  border-radius:   $corner-radius * 2;
+  padding:         $base-unit * 3;
+  margin-top:      $base-unit * 3;
+}
+
+.card:first {
+  margin-top: 0;
+}
+
+.card__info {
+  width: 60%;
+}
+
+.card__info__title {
+  @extend .typography-lead;
+  font-weight: $font-primary-weight-regular;
+  white-space:   nowrap;
+  overflow:      hidden;
+  text-overflow: ellipsis;
+}
+
+.card__info__details {
+  margin-top: $base-unit * 3;
+  color:      $color-grey;
+
+  > div {
+    margin-top: $base-unit;
+  }
+}
+
+.card__links {
+  text-align: right;
+
+  li {
+    margin-bottom: $base-unit * 2;
+  }
+}
+
+.card-list-wrapper {
+  margin-top: $base-unit * 7;
+}
+
 /*------------------------------------
 FORM
 ------------------------------------*/

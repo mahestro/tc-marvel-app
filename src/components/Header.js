@@ -24,12 +24,12 @@ Header.defaultProps = {
 };
 
 Header.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
-    mainTitle: ownProps.title && ownProps.title !== '' ? ownProps.title : state.site.mainTitle
+    mainTitle: state.site.mainTitle
   };
 };
 

@@ -24,8 +24,8 @@ class RequestForm extends Component {
   }
 
   componentDidMount() {
-    if (!isNaN(this.props.match.params.challengeId)) {
-      const challengeId = Number.parseInt(this.props.match.params.challengeId, 10);
+    if (!isNaN(this.props.match.params.id)) {
+      const challengeId = Number.parseInt(this.props.match.params.id, 10);
 
       this.props.actions.loadChallengeTitle(challengeId);
     }

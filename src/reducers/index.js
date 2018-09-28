@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import siteReducer from './siteReducer';
+import teamReducer from './teamReducer';
 
 export default combineReducers({
-  site: siteReducer
+  site: siteReducer,
+  teams: teamReducer
 });

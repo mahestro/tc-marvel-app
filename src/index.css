@@ -236,7 +236,7 @@ h5 {
   line-height: 36px;
   font-weight: 800; }
 
-.typography-lead, header .logo-wrapper span {
+.typography-lead, header .logo-wrapper span, .card__info__title {
   font-family: "Roboto", Helvetica, arial, sans-serif;
   font-size: 20px;
   line-height: 24px;
@@ -283,7 +283,7 @@ header {
   height: 160px;
   background-color: #FCFCFE;
   border-bottom: solid 1px #F0F0F2; }
-  header .typography-lead, header .logo-wrapper span {
+  header .typography-lead, header .logo-wrapper span, header .card__info__title {
     font-weight: 400; }
   header .logo-wrapper {
     padding-top: 50px;
@@ -318,6 +318,47 @@ section.message {
   width: 70px;
   height: 1px;
   background-color: #C3C3C7; }
+
+.list__title {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline; }
+
+.card {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  border: 1px solid #C3C3C7;
+  border-radius: 4px;
+  padding: 15px;
+  margin-top: 15px; }
+
+.card:first {
+  margin-top: 0; }
+
+.card__info {
+  width: 60%; }
+
+.card__info__title {
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.card__info__details {
+  margin-top: 15px;
+  color: #787882; }
+  .card__info__details > div {
+    margin-top: 5px; }
+
+.card__links {
+  text-align: right; }
+  .card__links li {
+    margin-bottom: 10px; }
+
+.card-list-wrapper {
+  margin-top: 35px; }
 
 /*------------------------------------
 FORM

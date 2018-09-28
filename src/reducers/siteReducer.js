@@ -1,13 +1,7 @@
+import defaultState from './defaultState';
 import * as types from '../constants/actionTypes';
 
-const defaultState = {
-  isAuthenticated: false,
-  mainTitle: '',
-  projectTypes: [],
-  targetDevices: []
-};
-
-export default function siteReducer(state = defaultState, action) {
+export default function siteReducer(state = defaultState.site, action) {
   switch(action.type) {
     case types.AUTHENTICATE_USER_SUCCESS:
       return {

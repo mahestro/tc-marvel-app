@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PrivateRoute from '../components/PrivateRoute';
 import Dashboard from './Dashboard';
-import TeamsList from './TeamsList';
+import Teams from './Teams';
 import RequestForm from './RequestForm';
 import Login from './Login';
 import RequestError from './RequestError';
@@ -28,10 +28,9 @@ class App extends Component {
             exact
             path={Routes.DASHBOARD}
             component={Dashboard} />
-          {/* <PrivateRoute
-            authenticated={this.props.isAuthenticated}
+          <PrivateRoute
             path={Routes.TEAMS}
-            component={TeamsList} /> */}
+            component={Teams} />
         </Switch>
       </div>
     );
