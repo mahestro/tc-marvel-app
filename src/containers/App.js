@@ -6,7 +6,7 @@ import Teams from './Teams';
 import RequestForm from './RequestForm';
 import Login from './Login';
 import RequestError from './RequestError';
-import PrototypesRequests from './PrototypesRequests';
+import PrototypesRequestsList from './PrototypesRequestsList';
 import TeamForm from './TeamForm';
 import Header from '../components/Header';
 import * as Routes from '../constants/routes';
@@ -39,7 +39,7 @@ class App extends Component {
             component={TeamForm} />
           <PrivateRoute
             path={Routes.PROTOTYPES}
-            component={PrototypesRequests} />
+            component={PrototypesRequestsList} />
         </Switch>
       </div>
     );

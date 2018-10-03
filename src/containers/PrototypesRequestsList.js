@@ -6,7 +6,7 @@ import * as teamActions from '../actions/teamActions';
 import * as Routes from '../constants/routes';
 import TeamsList from '../components/TeamsList';
 
-class PrototypesRequests extends Component {
+class PrototypesRequestsList extends Component {
   componentDidMount() {
     //this.props.actions.loadTeams();
   }
@@ -17,7 +17,6 @@ class PrototypesRequests extends Component {
         <Link to={Routes.TEAMS}>Back to Teams</Link>
         <div className="list__title">
           <h5>Requests</h5>
-          <Link to={Routes.TEAM}>+New Team</Link>
         </div>
 
         <div className="card-list-wrapper">
@@ -40,4 +39,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PrototypesRequests);
+export default connect(mapStateToProps, mapDispatchToProps)(PrototypesRequestsList);

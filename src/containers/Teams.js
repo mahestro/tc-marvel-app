@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import * as teamActions from '../actions/teamActions';
 import * as Routes from '../constants/routes';
 import TeamsList from '../components/TeamsList';
-import PrototypesRequests from './PrototypesRequests';
+import PrototypesRequestsList from './PrototypesRequestsList';
 
 class Teams extends Component {
   componentDidMount() {
