@@ -1,32 +1,27 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Route } from 'react-router';
 import { Link } from 'react-router-dom';
 import * as teamActions from '../actions/teamActions';
 import * as Routes from '../constants/routes';
 import TeamsList from '../components/TeamsList';
-import PrototypesRequests from './PrototypesRequests';
 
-class Teams extends Component {
+class PrototypesRequests extends Component {
   componentDidMount() {
-    this.props.actions.loadTeams();
+    //this.props.actions.loadTeams();
   }
 
   render() {
     return (
       <section className="form">
+        <Link to={Routes.TEAMS}>Back to Teams</Link>
         <div className="list__title">
-          <h5>Teams</h5>
-          <Link to={Routes.NEW_TEAM}>+New Team</Link>
+          <h5>Requests</h5>
+          <Link to={Routes.TEAM}>+New Team</Link>
         </div>
 
         <div className="card-list-wrapper">
-          <TeamsList
-            teams={this.props.teams}
-            viewRequestLink={Routes.PROTOTYPES}
-            configureLink={Routes.TEAM}
-          />
+          {/* <TeamsList teams={this.props.teams} /> */}
         </div>
       </section>
     );
@@ -45,4 +40,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Teams);
+export default connect(mapStateToProps, mapDispatchToProps)(PrototypesRequests);

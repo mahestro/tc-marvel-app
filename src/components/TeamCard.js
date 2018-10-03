@@ -23,7 +23,7 @@ const TeamCard = ({title, challengeId, requests, viewRequestsLink, configureLink
 
 TeamCard.propTypes = {
   title: PropTypes.string.isRequired,
-  challengeId: PropTypes.string.isRequired,
+  challengeId: PropTypes.number.isRequired,
   requests: PropTypes.number.isRequired,
   viewRequestsLink: PropTypes.string.isRequired,
   configureLink: PropTypes.string.isRequired

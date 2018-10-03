@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TeamCard from './TeamCard';
 
-const TeamsList = ({teams}) => (
-  teams.map((team, index) =>
+const TeamsList = ({teams, viewRequestLink, configureLink}) => (
+  teams.map(team => (
     <TeamCard
-      key={index.toString()}
+      key={team.teamId}
       title={team.teamName}
       challengeId={team.challengeId}
       requests={team.requests}
-      viewRequestsLink='link1'
-      configureLink='link2' />
-  )
-
+      viewRequestsLink={viewRequestLink.replace(':id', team.teamId)}
+      configureLink={configureLink.replace(':id', team.teamId)}
+    />
+  ))
 );
 
 TeamsList.defaultProps = {
