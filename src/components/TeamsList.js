@@ -8,7 +8,7 @@ const TeamsList = ({teams, viewRequestLink, configureLink}) => (
       key={team.teamId}
       title={team.teamName}
       challengeId={team.challengeId}
-      requests={team.requests}
+      requests={team.requestsCount}
       viewRequestsLink={viewRequestLink.replace(':id', team.teamId)}
       configureLink={configureLink.replace(':id', team.teamId)}
     />

@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import * as teamActions from '../actions/teamActions';
+import * as requestActions from '../actions/requestActions';
 import * as Routes from '../constants/routes';
-import TeamsList from '../components/TeamsList';
+import RequestsList from '../components/RequestsList';
 
 class PrototypesRequestsList extends Component {
   componentDidMount() {
-    //this.props.actions.loadTeams();
+    this.props.actions.loadRequests();
+  }
+
+  handleDelete = e => {
+    e.preventDefault();
   }
 
   render() {
@@ -20,7 +24,11 @@ class PrototypesRequestsList extends Component {
         </div>
 
         <div className="card-list-wrapper">
-          {/* <TeamsList teams={this.props.teams} /> */}
+          <RequestsList
+            requests={this.props.requests}
+            editRequestLink={Routes.PROTOTYPE}
+            handleDelete={this.handleDelete}
+          />
         </div>
       </section>
     );
@@ -29,13 +37,13 @@ class PrototypesRequestsList extends Component {
 
 const mapStateToProps = state => {
   return {
-    teams: state.teams
+    requests: state.requests
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    actions: bindActionCreators(teamActions, dispatch)
+    actions: bindActionCreators(requestActions, dispatch)
   };
 };
 

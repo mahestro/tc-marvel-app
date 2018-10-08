@@ -26,7 +26,7 @@ export function authenticate(value) {
   };
 }
 
-function setMainTitleSuccess(value) {
+export function setMainTitleSuccess(value) {
   return {
     type: types.UPDATE_MAIN_TITLE_SUCCESSS,
     payload: value

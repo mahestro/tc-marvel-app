@@ -3,7 +3,7 @@ export const teams = [
     challengeId: 3006463,
     teamName: 'JH - Correspondence Bill Long Name',
     baseName: 'Basename_',
-    requests: 10,
+    requestsCount: 10,
     projectTypes: [
       { idProjectType: 5, name: 'iPhone' },
       { idProjectType: 6, name: 'Web Desktop' }
@@ -13,10 +13,29 @@ export const teams = [
     challengeId: 60097236,
     teamName: 'HeavyWater Team',
     baseName: 'Basename2_',
-    requests: 7,
+    requestsCount: 7,
     projectTypes: [
       { idProjectType: 8, name: 'Android' }
     ]
+  }
+];
+
+export const requests = [
+  {
+    requestId: 1,
+    handle: 'mahestro',
+    memberEmail: 'mahestro.topcoder@gmail.com',
+    requestDate: '4 Mar 2018, 09:00 EDT',
+    requests: 2,
+    marvelLink: 'http://marvelapp.com'
+  },
+  {
+    requestId: 2,
+    handle: 'DaraK',
+    memberEmail: 'keylablue@gmail.com',
+    requestDate: '4 Mar 2018, 09:00 EDT',
+    requests: 1,
+    marvelLink: 'http://marvelapp.com'
   }
 ];
 

@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Route } from 'react-router';
 import { Link } from 'react-router-dom';
 import * as teamActions from '../actions/teamActions';
 import * as Routes from '../constants/routes';
 import TeamsList from '../components/TeamsList';
-import PrototypesRequestsList from './PrototypesRequestsList';
 
 class Teams extends Component {
   componentDidMount() {
@@ -18,7 +16,7 @@ class Teams extends Component {
       <section className="form">
         <div className="list__title">
           <h5>Teams</h5>
-          <Link to={Routes.NEW_TEAM}>+New Team</Link>
+          <Link to={Routes.TEAM}>+New Team</Link>
         </div>
 
         <div className="card-list-wrapper">

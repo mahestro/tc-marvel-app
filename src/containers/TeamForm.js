@@ -113,7 +113,7 @@ class TeamForm extends Component {
         {
           !saved && !exception  &&
           <section className="form">
-            <h5>MarvelApp Request</h5>
+            <h5>Edit Team</h5>
 
             <div className="wrapper--form">
               <form onSubmit={this.onSubmit}>

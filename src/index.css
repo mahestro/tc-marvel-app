@@ -149,7 +149,8 @@ body {
 
 a {
   color: #0971E6;
-  text-decoration: none; }
+  text-decoration: none;
+  cursor: pointer; }
 
 /*------------------------------------
 FONTS
