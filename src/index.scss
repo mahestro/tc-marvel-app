@@ -264,6 +264,26 @@ FORM
   margin-top: $base-unit * 4;
 }
 
+.form__selector {
+  margin-top:   $base-unit * 3;
+  padding:      $base-unit * 4 0;
+  border:       1px solid $color-light-grey;
+  border-right: none;
+  border-left:  none;
+}
+
+.form__selector__item {
+  margin-top: $base-unit * 2;
+
+  & strong {
+    color: $color-black;
+  }
+}
+
+.form__selector__item:first-child {
+  margin-top: 0;
+}
+
 input, textarea {
   font-family: $font-primary-stack;
 }
@@ -322,6 +342,10 @@ LINKS
 
 .link:active {
 	color: $color-tertiary;
+}
+
+.link-delete {
+  color: $color-error;
 }
 
 /*------------------------------------

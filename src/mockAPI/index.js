@@ -5,8 +5,8 @@ export const teams = [
     baseName: 'Basename_',
     requestsCount: 10,
     projectTypes: [
-      { idProjectType: 5, name: 'iPhone' },
-      { idProjectType: 6, name: 'Web Desktop' }
+      { projectTypeId: 5, name: 'iPhone' },
+      { projectTypeId: 6, name: 'Web Desktop' }
     ]
   },
   { teamId: 2,
@@ -15,7 +15,7 @@ export const teams = [
     baseName: 'Basename2_',
     requestsCount: 7,
     projectTypes: [
-      { idProjectType: 8, name: 'Android' }
+      { projectTypeId: 8, name: 'Android' }
     ]
   }
 ];

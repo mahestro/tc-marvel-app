@@ -385,6 +385,21 @@ FORM
 .form__submit-area {
   margin-top: 20px; }
 
+.form__selector {
+  margin-top: 15px;
+  padding: 20px 0;
+  border: 1px solid #C3C3C7;
+  border-right: none;
+  border-left: none; }
+
+.form__selector__item {
+  margin-top: 10px; }
+  .form__selector__item strong {
+    color: #37373B; }
+
+.form__selector__item:first-child {
+  margin-top: 0; }
+
 input, textarea {
   font-family: "Roboto", Helvetica, arial, sans-serif; }
 
@@ -432,6 +447,9 @@ LINKS
 
 .link:active {
   color: #9050A3; }
+
+.link-delete {
+  color: #F22E24; }
 
 /*------------------------------------
 BUTTONS
