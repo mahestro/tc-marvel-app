@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import RequestSuccess from './RequestSuccess';
-import RequestError from './RequestError';
 import TextField from '../components/TextField'
 import Button from '../components/Button'
+import Message from '../components/Message'
 import ProjectTypeSelector from '../components/ProjectTypeSelector';
-import { TCMARVEL_API_BASE_URL, MAIL_RECEIVER } from '../constants/config';
 import * as siteActions from '../actions/teamActions';
+import * as Routes from '../constants/routes';
 
 class TeamForm extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class TeamForm extends Component {
 
   componentDidMount() {
     if (!isNaN(this.props.match.params.id)) {
-      const teamId = Number.parseInt(this.props.match.params.id, 10);
+      // const teamId = Number.parseInt(this.props.match.params.id, 10);
 
       // Load team
     }
@@ -35,6 +35,7 @@ class TeamForm extends Component {
       return;
 
     this.setState({saving: true});
+    this.setState({saving: false, saved: true});
   }
 
   handleTextfield = e => {
@@ -45,25 +46,55 @@ class TeamForm extends Component {
   }
 
   handleAddProjectType = e => {
+    const projectTypeId = Number(e.target.name.substr(e.target.name.indexOf('_') + 1));
+    let team = this.state.team;
+    let newProjectType;
 
+    this.props.dropDownItems.find(obj => {
+      if (obj.id === projectTypeId) {
+        newProjectType = obj;
+        return true;
+      }
+
+      return false;
+    });
+
+    if (newProjectType) {
+      team.projectTypes.push(newProjectType);
+      this.setState({ team });
+    }
   }
 
   handleDeleteProjectType = e => {
+    const index = Number(e.target.name.substr(e.target.name.indexOf('_') + 1));
+    let team = this.state.team;
+    team.projectTypes.splice(index, 1);
 
+    this.setState({ team });
   }
 
   isFormValid = () => {
     let formIsValid = true;
     let errors = {};
 
-    if (this.state.team.email.trim() === '') {
+    if (this.state.team.challengeId.trim() === '') {
       formIsValid = false;
-      errors.email = 'Email is required. Please enter your email address';
+      errors.challengeId = 'Challenge is required';
     }
 
-    if (this.state.team.tcHandle.trim() === '') {
+    if (this.state.team.teamName.trim() === '') {
       formIsValid = false;
-      errors.tcHandle = 'Topcoder handle is required. Please enter your Topcoder handle';
+      errors.teamName = 'Team Name is required';
+    }
+
+    if (this.state.team.baseName.trim() === '') {
+      formIsValid = false;
+      errors.baseName = 'Base Name is required';
+    }
+
+    if (this.state.team.projectTypes.length === 0) {
+      formIsValid = false;
+      errors.projectType = 'At least one project type needs to be added';
     }
 
     this.setState({errors});
@@ -82,7 +113,11 @@ class TeamForm extends Component {
     return (
       <div>
         {
-          saved && <RequestSuccess />
+          saved && (
+            <Message title="Team edited successfully">
+              <p><Link to={Routes.TEAMS}>Back to teams</Link></p>
+            </Message>
+          )
         }
 
         {
@@ -95,7 +130,7 @@ class TeamForm extends Component {
                <TextField
                   type="text"
                   name="challengeId"
-                  value={challengeId.toString()}
+                  value={challengeId}
                   label="Topcoder Challenge ID"
                   placeholder="e.g. 3006714"
                   required={true}
@@ -128,9 +163,9 @@ class TeamForm extends Component {
                 <ProjectTypeSelector
                   dropDownItems={this.props.dropDownItems}
                   projectTypes={projectTypes}
-                  addProjectTypeHandler={this.handleAddProjectType}
                   handleDeleteProjectType={this.handleDeleteProjectType}
-                  handleAddProjectType={this.handleDeleteProjectType}
+                  handleAddProjectType={this.handleAddProjectType}
+                  error={errors.projectType}
                 />
 
                 <div className="form__submit-area">
@@ -149,16 +184,16 @@ class TeamForm extends Component {
 }
 
 function getTeamById(teams, id) {
-  const foundTeam = teams.filter(team => team.teamId == id);
-  if (foundTeam) return foundTeam[0];
+  const foundTeam = teams.find(team => team.teamId === id);
+  if (foundTeam) return foundTeam;
   return null;
 }
 
 function mapStateToProps(state, ownProps) {
   const teamId = ownProps.match.params.id;
   let team = {
-    teamId: -1,
-    challengeId: -1,
+    teamId: '',
+    challengeId: '',
     teamName: '',
     baseName: '',
     requestsCount: 0,
@@ -171,7 +206,10 @@ function mapStateToProps(state, ownProps) {
 
   return {
     team: team,
-    dropDownItems: state.site.projectTypes
+    dropDownItems: state.site.projectTypes.map(type => ({
+      id: type.projectTypeId,
+      name: type.name
+    }))
   };
 }
 

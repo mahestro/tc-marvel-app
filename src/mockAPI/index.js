@@ -1,6 +1,6 @@
 export const teams = [
-  { teamId: 1,
-    challengeId: 3006463,
+  { teamId: '1',
+    challengeId: '3006463',
     teamName: 'JH - Correspondence Bill Long Name',
     baseName: 'Basename_',
     requestsCount: 10,
@@ -9,8 +9,8 @@ export const teams = [
       { projectTypeId: 6, name: 'Web Desktop' }
     ]
   },
-  { teamId: 2,
-    challengeId: 60097236,
+  { teamId: '2',
+    challengeId: '60097236',
     teamName: 'HeavyWater Team',
     baseName: 'Basename2_',
     requestsCount: 7,

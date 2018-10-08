@@ -1,5 +1,5 @@
 import * as types from '../constants/actionTypes';
-import superagent from 'superagent';
+// import superagent from 'superagent';
 import { teams } from '../mockAPI';
 
 export function loadTeamsSuccess(values) {

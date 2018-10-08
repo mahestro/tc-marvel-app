@@ -38,6 +38,10 @@ class App extends Component {
             path={Routes.TEAM}
             component={TeamForm} />
           <PrivateRoute
+            exact
+            path={Routes.NEW_TEAM}
+            component={TeamForm} />
+          <PrivateRoute
             path={Routes.PROTOTYPES}
             component={PrototypesRequestsList} />
         </Switch>

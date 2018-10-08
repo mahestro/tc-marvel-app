@@ -7,8 +7,10 @@ import './index.css';
 import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 import { loadProjectTypes } from './actions/siteActions';
+import { loadTeams } from './actions/teamActions';
 
 store.dispatch(loadProjectTypes());
+store.dispatch(loadTeams());
 
 ReactDOM.render(
   <Provider store={store}>

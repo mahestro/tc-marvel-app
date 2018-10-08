@@ -24,8 +24,9 @@ class DropDown extends Component {
               {
                 items.map(item => (
                   <DropDownItem
-                    key={item.name}
-                    name={item.name}
+                    key={`${item.name}_${item.id}`}
+                    name={`${item.name}_${item.id}`}
+                    label={item.name}
                     handleClick={handleClick}
                   />
                 ))

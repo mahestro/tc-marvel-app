@@ -7,16 +7,12 @@ import * as Routes from '../constants/routes';
 import TeamsList from '../components/TeamsList';
 
 class Teams extends Component {
-  componentDidMount() {
-    this.props.actions.loadTeams();
-  }
-
   render() {
     return (
       <section className="form">
         <div className="list__title">
           <h5>Teams</h5>
-          <Link to={Routes.TEAM}>+New Team</Link>
+          <Link to={Routes.NEW_TEAM}>+New Team</Link>
         </div>
 
         <div className="card-list-wrapper">

@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ProjectTypeItem = ({name, handleDelete}) => (
+const ProjectTypeItem = ({name, label, handleDelete}) => (
   <div className="form__selector__item">
-    <strong>{name}</strong>
+    <strong>{label}</strong>
     { ' | ' }
-    <a className="link-delete" onClick={handleDelete}>delete</a>
+    <a
+      className="link-delete"
+      onClick={handleDelete}
+      name={name}
+    >delete</a>
   </div>
 );
 

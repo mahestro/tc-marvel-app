@@ -1,5 +1,5 @@
 import * as types from '../constants/actionTypes';
-import superagent from 'superagent';
+// import superagent from 'superagent';
 import { requests } from '../mockAPI';
 
 export function loadRequestsSuccess(values) {
