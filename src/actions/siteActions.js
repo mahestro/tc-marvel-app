@@ -1,6 +1,7 @@
 import * as types from '../constants/actionTypes';
 import superagent from 'superagent';
 import { TC_API_BASE_URL } from '../constants/config';
+import { projectTypes } from '../mockAPI';
 
 const password = process.env.REACT_APP_DASHBOARD_PASSWORD;
 
@@ -36,7 +37,7 @@ export function setMainTitleSuccess(value) {
 export function setMainTitle(value) {
   return dispatch => {
     dispatch(setMainTitleSuccess(value));
-  }
+  };
 }
 
 export function loadChallengeTitle(challengeId) {
@@ -47,5 +48,18 @@ export function loadChallengeTitle(challengeId) {
 
           dispatch(setMainTitleSuccess(res.body.result.content.challengeName));
         });
+  };
+}
+
+export function loadProjectTypes() {
+  return dispatch => {
+    dispatch(loadProjectTypesSuccess(projectTypes));
+  };
+}
+
+export function loadProjectTypesSuccess(value) {
+  return {
+    type: types.LOAD_PROJECT_TYPES_SUCCESS,
+    payload: value
   };
 }

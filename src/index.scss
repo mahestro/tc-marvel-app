@@ -284,6 +284,26 @@ FORM
   margin-top: 0;
 }
 
+.dropdown {
+  position: relative;
+
+  & ul {
+    z-index:          100;
+    position:         absolute;
+    top:              $base-unit * 6;
+    right:            0px;
+    width:            $base-unit * 31;
+    padding:          $base-unit * 3;
+    border:           1px solid $color-light-grey;
+    background-color: $color-white;
+
+    & li {
+      margin-top: $base-unit;
+      text-align: right;
+    }
+  }
+}
+
 input, textarea {
   font-family: $font-primary-stack;
 }

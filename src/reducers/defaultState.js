@@ -2,8 +2,7 @@ export default {
   site: {
     isAuthenticated: true,
     mainTitle: 'Topcoder Marvelapp Management',
-    projectTypes: [],
-    targetDevices: []
+    projectTypes: []
   },
   teams: [],
   requests: []

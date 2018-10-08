@@ -400,6 +400,21 @@ FORM
 .form__selector__item:first-child {
   margin-top: 0; }
 
+.dropdown {
+  position: relative; }
+  .dropdown ul {
+    z-index: 100;
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    width: 155px;
+    padding: 15px;
+    border: 1px solid #C3C3C7;
+    background-color: #FFF; }
+    .dropdown ul li {
+      margin-top: 5px;
+      text-align: right; }
+
 input, textarea {
   font-family: "Roboto", Helvetica, arial, sans-serif; }
 

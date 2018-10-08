@@ -40,14 +40,9 @@ export const requests = [
 ];
 
 export const projectTypes = [
-  { id: 1, value: 'Design' },
-  { id: 1, value: 'Development' }
-];
-
-export const devices = [
-  { id: 1, value: 'Phone' },
-  { id: 2, value: 'Tablet' },
-  { id: 3, value: 'Desktop/Browser' },
-  { id: 4, value: 'Tv' },
-  { id: 5, value: 'Wearable device' }
+  { projectTypeId: 5, name: 'iPhone' },
+  { projectTypeId: 6, name: 'Web Desktop' },
+  { projectTypeId: 7, name: 'Android' },
+  { projectTypeId: 8, name: 'Tablet' },
+  { projectTypeId: 9, name: 'iPhone X' }
 ];

@@ -15,16 +15,10 @@ export default function siteReducer(state = defaultState.site, action) {
         mainTitle: action.payload
       };
 
-    case types.LOAD_PROJECT_TYPES:
+    case types.LOAD_PROJECT_TYPES_SUCCESS:
       return {
         ...state,
         projectTypes: action.payload
-      };
-
-    case types.LOAD_TARGET_DEVICES:
-      return {
-        ...state,
-        targetDevices: action.payload
       };
 
     default:

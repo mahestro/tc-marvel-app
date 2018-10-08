@@ -126,9 +126,11 @@ class TeamForm extends Component {
                 />
 
                 <ProjectTypeSelector
+                  dropDownItems={this.props.dropDownItems}
                   projectTypes={projectTypes}
                   addProjectTypeHandler={this.handleAddProjectType}
                   handleDeleteProjectType={this.handleDeleteProjectType}
+                  handleAddProjectType={this.handleDeleteProjectType}
                 />
 
                 <div className="form__submit-area">
@@ -168,7 +170,8 @@ function mapStateToProps(state, ownProps) {
   }
 
   return {
-    team: team
+    team: team,
+    dropDownItems: state.site.projectTypes
   };
 }
 
