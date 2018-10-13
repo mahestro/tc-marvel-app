@@ -46,7 +46,7 @@ class TeamForm extends Component {
   }
 
   handleAddProjectType = e => {
-    const projectTypeId = Number(e.target.name.substr(e.target.name.indexOf('_') + 1));
+    const projectTypeId = e.target.name.substr(e.target.name.indexOf('_') + 1);
     let team = this.state.team;
     let newProjectType;
 
@@ -207,8 +207,8 @@ function mapStateToProps(state, ownProps) {
   return {
     team: team,
     dropDownItems: state.site.projectTypes.map(type => ({
-      id: type.projectTypeId,
-      name: type.name
+      id: type.marvelAppId,
+      name: type.projectName
     }))
   };
 }
