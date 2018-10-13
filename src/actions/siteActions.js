@@ -1,6 +1,6 @@
 import * as types from '../constants/actionTypes';
 import superagent from 'superagent';
-import { TC_API_BASE_URL } from '../constants/config';
+import { MARVELAPP_GQL_URL, TC_API_BASE_URL } from '../constants/config';
 import { projectTypes } from '../mockAPI';
 
 const password = process.env.REACT_APP_DASHBOARD_PASSWORD;
@@ -53,6 +53,7 @@ export function loadChallengeTitle(challengeId) {
 
 export function loadProjectTypes() {
   return dispatch => {
+    // return superagent.get(`${MARVELAPP_GQL_URL}/q`)
     dispatch(loadProjectTypesSuccess(projectTypes));
   };
 }

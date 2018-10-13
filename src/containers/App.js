@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import PrivateRoute from '../components/PrivateRoute';
 import Dashboard from './Dashboard';
 import Teams from './Teams';
@@ -50,4 +50,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
