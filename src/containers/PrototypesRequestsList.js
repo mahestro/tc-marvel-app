@@ -8,11 +8,15 @@ import RequestsList from '../components/RequestsList';
 
 class PrototypesRequestsList extends Component {
   componentDidMount() {
-    this.props.actions.loadRequests();
+    this.props.actions.loadRequests(this.props.match.params.id);
   }
 
   handleDelete = e => {
     e.preventDefault();
+    this.props.actions.deleteRequest(e.target.name)
+      .catch(err => {
+        throw(err);
+      });
   }
 
   render() {
@@ -20,13 +24,12 @@ class PrototypesRequestsList extends Component {
       <section className="form">
         <Link to={Routes.TEAMS}>Back to Teams</Link>
         <div className="list__title">
-          <h5>Requests</h5>
+          <h5>Requests ({this.props.requests.length})</h5>
         </div>
 
         <div className="card-list-wrapper">
           <RequestsList
             requests={this.props.requests}
-            editRequestLink={Routes.PROTOTYPE}
             handleDelete={this.handleDelete}
           />
         </div>

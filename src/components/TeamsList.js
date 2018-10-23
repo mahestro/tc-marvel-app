@@ -8,7 +8,6 @@ const TeamsList = ({teams, viewRequestLink, configureLink}) => (
       key={team.id}
       title={team.teamName}
       challengeId={team.idTopcoderChallenge}
-      requests={team.baseCount}
       viewRequestsLink={viewRequestLink.replace(':id', team.idTeamMarvelApp)}
       configureLink={configureLink.replace(':id', team.idTeamMarvelApp)}
     />

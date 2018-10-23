@@ -156,6 +156,7 @@ section.form,
 section.message {
   @extend .wrapper;
   padding-top: $base-unit * 16;
+  padding-bottom: $base-unit * 16;
 }
 
 section.message {

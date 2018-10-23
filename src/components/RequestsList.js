@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RequestCard from './RequestCard';
 
-const RequestsList = ({requests, editRequestLink, handleDelete}) => (
+const RequestsList = ({requests, handleDelete}) => (
   requests.map(request => (
     <RequestCard
-      key={request.requestId}
-      title={request.handle}
-      memberEmail={request.memberEmail}
-      requestDate={request.requestDate}
-      requests={request.count}
-      marvelLink={request.marvelLink}
-      editRequestLink={editRequestLink.replace(':id', request.requestId)}
+      key={request.id}
+      id={request.id}
+      title={request.tcHandle}
+      memberEmail={request.tcEmail}
+      requestDate={request.createdAt}
+      requests={request.baseCount}
+      projects={request.projects}
       handleDelete={handleDelete}
     />
   ))

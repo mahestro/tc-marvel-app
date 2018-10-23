@@ -14,8 +14,13 @@ export default function requestReducer(state = defaultState.requests, action) {
 
     case types.UPDATE_REQUEST_SUCCESS:
       return [
-        ...state.filter(request => request.id !== action.request.id),
-        Object.assign({}, action.request)
+        ...state.filter(request => request.id !== action.payload.id),
+        Object.assign({}, action.payload)
+      ];
+
+    case types.DELETE_REQUEST_SUCCESS:
+      return [
+        ...state.filter(request => request.id !== action.payload)
       ];
 
     default: return state;
