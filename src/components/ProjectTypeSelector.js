@@ -29,9 +29,9 @@ const ProjectTypeSelector = ({dropDownItems, projectTypes, required, handleAddPr
         {
           projectTypes.map((type, index) => (
             <ProjectTypeItem
-              key={`${type.name}_${index}_${type.id}`}
-              name={`${type.name}_${index}`}
-              label={type.name}
+              key={`${type.marvelAppId}_${index}_${type.id}`}
+              name={`${type.projectName}_${index}`}
+              label={type.projectName}
               handleDelete={handleDeleteProjectType}
             />
           ))

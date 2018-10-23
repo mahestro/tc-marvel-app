@@ -20,11 +20,10 @@ class TeamForm extends Component {
     }
   }
 
-  componentDidMount() {
-    if (!isNaN(this.props.match.params.id)) {
-      // const teamId = Number.parseInt(this.props.match.params.id, 10);
-
-      // Load team
+  componentWillReceiveProps(nextProps) {
+    if (this.props.team.id !== nextProps.team.id) {
+      // loading course directly from refreshing browser
+      this.setState({team: Object.assign({}, nextProps.team)});
     }
   }
 
@@ -34,8 +33,22 @@ class TeamForm extends Component {
     if (!this.isFormValid())
       return;
 
+    const team = {
+      ...this.state.team,
+      projectTypes: this.state.team.projectTypes.map(t => {
+        return { _id: t._id }
+      })
+    }
+
     this.setState({saving: true});
-    this.setState({saving: false, saved: true});
+
+    this.props.actions.saveTeam(team)
+      .then(() => {
+        this.setState({saved: true});
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   handleTextfield = e => {
@@ -51,7 +64,7 @@ class TeamForm extends Component {
     let newProjectType;
 
     this.props.dropDownItems.find(obj => {
-      if (obj.id === projectTypeId) {
+      if (obj.marvelAppId === projectTypeId) {
         newProjectType = obj;
         return true;
       }
@@ -77,9 +90,14 @@ class TeamForm extends Component {
     let formIsValid = true;
     let errors = {};
 
-    if (this.state.team.challengeId.trim() === '') {
+    if (this.state.team.idTopcoderChallenge.trim() === '') {
       formIsValid = false;
-      errors.challengeId = 'Challenge is required';
+      errors.idTopcoderChallenge = 'Challenge is required';
+    }
+
+    if (this.state.team.idTeamMarvelApp.trim() === '') {
+      formIsValid = false;
+      errors.idTeamMarvelApp = 'Marvelapp team is required';
     }
 
     if (this.state.team.teamName.trim() === '') {
@@ -103,7 +121,8 @@ class TeamForm extends Component {
 
   render() {
     const {
-      challengeId,
+      idTopcoderChallenge,
+      idTeamMarvelApp,
       teamName,
       baseName,
       projectTypes
@@ -129,12 +148,23 @@ class TeamForm extends Component {
               <form onSubmit={this.onSubmit}>
                <TextField
                   type="text"
-                  name="challengeId"
-                  value={challengeId}
+                  name="idTopcoderChallenge"
+                  value={idTopcoderChallenge}
                   label="Topcoder Challenge ID"
                   placeholder="e.g. 3006714"
                   required={true}
-                  error={errors.challengeId}
+                  error={errors.idTopcoderChallenge}
+                  onChange={this.handleTextfield}
+                />
+
+                <TextField
+                  type="text"
+                  name="idTeamMarvelApp"
+                  value={idTeamMarvelApp}
+                  label="Marvelapp Team ID"
+                  placeholder="e.g. 5219"
+                  required={true}
+                  error={errors.idTeamMarvelApp}
                   onChange={this.handleTextfield}
                 />
 
@@ -184,32 +214,33 @@ class TeamForm extends Component {
 }
 
 function getTeamById(teams, id) {
-  const foundTeam = teams.find(team => team.teamId === id);
+  const foundTeam = teams.find(team => team.idTeamMarvelApp === id);
   if (foundTeam) return foundTeam;
   return null;
 }
 
 function mapStateToProps(state, ownProps) {
-  const teamId = ownProps.match.params.id;
+  const idTeamMarvelApp = ownProps.match.params.id;
   let team = {
-    teamId: '',
-    challengeId: '',
+    idTeamMarvelApp: '',
+    idTopcoderChallenge: '',
     teamName: '',
     baseName: '',
-    requestsCount: 0,
     projectTypes: []
   };
 
-  if (teamId && state.teams.length > 0) {
-    team = getTeamById(state.teams, teamId);
+  if (idTeamMarvelApp && state.teams.length > 0) {
+    team = getTeamById(state.teams, idTeamMarvelApp);
   }
 
   return {
     team: team,
-    dropDownItems: state.site.projectTypes.map(type => ({
-      id: type.marvelAppId,
-      name: type.projectName
-    }))
+    dropDownItems: state.site.projectTypes.map(item => {
+      return {
+        ...item,
+        _id: item.id
+      }
+    })
   };
 }
 

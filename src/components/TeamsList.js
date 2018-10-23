@@ -5,12 +5,12 @@ import TeamCard from './TeamCard';
 const TeamsList = ({teams, viewRequestLink, configureLink}) => (
   teams.map(team => (
     <TeamCard
-      key={team.teamId}
+      key={team.id}
       title={team.teamName}
-      challengeId={team.challengeId}
-      requests={team.requestsCount}
-      viewRequestsLink={viewRequestLink.replace(':id', team.teamId)}
-      configureLink={configureLink.replace(':id', team.teamId)}
+      challengeId={team.idTopcoderChallenge}
+      requests={team.baseCount}
+      viewRequestsLink={viewRequestLink.replace(':id', team.idTeamMarvelApp)}
+      configureLink={configureLink.replace(':id', team.idTeamMarvelApp)}
     />
   ))
 );

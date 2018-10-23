@@ -14,8 +14,8 @@ export default function teamReducer(state = defaultState.teams, action) {
 
     case types.UPDATE_TEAM_SUCCESS:
       return [
-        ...state.filter(team => team.id !== action.team.id),
-        Object.assign({}, action.team)
+        ...state.filter(team => team.id !== action.payload.id),
+        Object.assign({}, action.payload)
       ];
 
     default: return state;

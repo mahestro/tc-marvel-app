@@ -22,11 +22,11 @@ class DropDown extends Component {
           !this.state.isHidden && (
             <ul>
               {
-                items.map(item => (
+                items.map((item, index) => (
                   <DropDownItem
-                    key={`${item.name}_${item.id}`}
-                    name={`${item.name}_${item.id}`}
-                    label={item.name}
+                    key={`${item.id}_${index}_${item.marvelAppId}`}
+                    name={`${item.projectName}_${item.marvelAppId}`}
+                    label={item.projectName}
                     handleClick={handleClick}
                   />
                 ))
