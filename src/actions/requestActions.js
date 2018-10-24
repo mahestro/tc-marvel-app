@@ -62,6 +62,9 @@ export function saveRequest(request) {
           });
 
         dispatch(createRequestSuccess(response.body.request));
+      })
+      .catch(err => {
+        throw(err);
       });
     } else {
       return superagent.put(`${TCMARVEL_API_BASE_URL}/requests/${request.idTopcoderChallenge}`, { request: request })
@@ -69,6 +72,9 @@ export function saveRequest(request) {
         if (failure) return; //dispatch error handler
 
         dispatch(updateRequestSuccess(response.body.request));
+      })
+      .catch(err => {
+        throw(err);
       });
     }
   };
