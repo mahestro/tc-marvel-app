@@ -16,7 +16,7 @@ const RequestCard = ({id, title, requestDate, memberEmail, projects, handleDelet
     <div className="card__links">
       <ul>
         {
-          projects.map(project => <li key={project._id}><a href={project.prototypeUrl} target="_blank">{project.projectType.projectName}</a></li>)
+          projects.map(project => <li key={project._id}><a href={project.prototypeUrl} target="_blank" rel="noopener noreferrer">{project.projectType.projectName}</a></li>)
         }
         <li><a name={id} onClick={handleDelete}>Delete</a></li>
       </ul>
