@@ -545,6 +545,18 @@ ICONS
 .icon--heartbroken {
   fill: #F22E24; }
 
+.icon--status {
+  margin-left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px; }
+
+.status--error {
+  background-color: #F22E24; }
+
+.status--success {
+  background-color: #60C702; }
+
 /*------------------------------------
 HELPERS
 ------------------------------------*/

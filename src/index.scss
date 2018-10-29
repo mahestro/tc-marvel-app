@@ -463,6 +463,21 @@ ICONS
   fill: $color-error;
 }
 
+.icon--status {
+  margin-left:   $base-unit;
+  width:         10px;
+  height:        10px;
+  border-radius: 5px;
+}
+
+.status--error {
+  background-color: $color-error;
+}
+
+.status--success {
+  background-color: $color-success;
+}
+
 /*------------------------------------
 HELPERS
 ------------------------------------*/

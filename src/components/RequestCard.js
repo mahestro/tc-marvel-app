@@ -5,18 +5,26 @@ import moment from 'moment';
 const RequestCard = ({id, title, requestDate, memberEmail, projects, handleDelete}) => (
   <div className="card">
     <div className="card__info">
-      <div className="card__info__title">{`[${title}]`}</div>
+      <div className="card__info__title">{`[${title}] #${projects[0].baseCount}`}</div>
       <div className="card__info__details">
         <div>{memberEmail}</div>
         <div>{moment(requestDate).format('MMM Do YY, h:mm a')}</div>
-        <div>Count: {projects[0].baseCount}</div>
       </div>
     </div>
 
     <div className="card__links">
       <ul>
         {
-          projects.map(project => <li key={project._id}><a href={project.prototypeUrl} target="_blank" rel="noopener noreferrer">{project.projectType.projectName}</a></li>)
+          projects.map(project => (
+            <li key={project._id}>
+              <a href={project.prototypeUrl} target="_blank" rel="noopener noreferrer">{project.projectType.projectName}</a>
+              {
+                project.collaboratorSuccessful ?
+                <i className="icon icon--status status--success"></i> :
+                <i className="icon icon--status status--error"></i>
+              }
+            </li>
+          ))
         }
         <li><a href="#nowhere" name={id} onClick={handleDelete}>Delete</a></li>
       </ul>
