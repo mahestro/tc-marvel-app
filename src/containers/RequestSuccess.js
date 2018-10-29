@@ -13,8 +13,8 @@ const RequestSuccess = () => {
         <h5>Your request has been sent!</h5>
 
         <p>
-          You will receive an invite <strong>within the next eight (8) hours</strong>.
-          In case you don’t receive an invite in that specified time, please contact your copilot at mahestro.topcoder@gmail.com
+          You will receive an invite <strong>within the next 30 minutes</strong>.<br />
+          If don't receive an email in that time, contact your copilot at mahestro.topcoder@gmail.com
         </p>
         <div className="sep"></div>
         <div className="typography-lead">What's next?</div>

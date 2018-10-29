@@ -155,7 +155,7 @@ header {
 section.form,
 section.message {
   @extend .wrapper;
-  padding-top: $base-unit * 16;
+  padding-top:    $base-unit * 16;
   padding-bottom: $base-unit * 16;
 }
 
@@ -168,7 +168,7 @@ section.message {
 }
 
 .message-img-wrapper {
-  margin: $base-unit * 5 auto;
+  margin: $base-unit * -12 auto 0;
   text-align: center;
 }
 
@@ -461,6 +461,21 @@ ICONS
 
 .icon--heartbroken {
   fill: $color-error;
+}
+
+.icon--status {
+  margin-left:   $base-unit;
+  width:         10px;
+  height:        10px;
+  border-radius: 5px;
+}
+
+.status--error {
+  background-color: $color-error;
+}
+
+.status--success {
+  background-color: $color-success;
 }
 
 /*------------------------------------
