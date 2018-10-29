@@ -1,6 +1,6 @@
 import * as types from '../constants/actionTypes';
 import { TCMARVEL_API_BASE_URL } from '../constants/config';
-import superagent from 'superagent';
+import agent from '../utils/agent';
 
 export function loadTeamsSuccess(values) {
   return {
@@ -11,7 +11,7 @@ export function loadTeamsSuccess(values) {
 
 export function loadTeams() {
   return dispatch => {
-    return superagent.get(`${TCMARVEL_API_BASE_URL}/teams`)
+    return agent.requests.get(`${TCMARVEL_API_BASE_URL}/teams`)
       .end((err, res) => {
         if (err) return;
 
@@ -37,14 +37,14 @@ export function updateTeamSuccess(value) {
 export function saveTeam(team) {
   return dispatch => {
     if (typeof team.id === 'undefined') {
-      return superagent.post(`${TCMARVEL_API_BASE_URL}/teams`, { team: team })
+      return agent.requests.post(`${TCMARVEL_API_BASE_URL}/teams`, { team: team })
       .then((response, failure) => {
         if (failure) return; //dispatch error handler
 
         dispatch(createTeamSuccess(response.body.team));
       });
     } else {
-      return superagent.put(`${TCMARVEL_API_BASE_URL}/teams/${team.idTeamMarvelApp}`, { team: team })
+      return agent.requests.put(`${TCMARVEL_API_BASE_URL}/teams/${team.idTeamMarvelApp}`, { team: team })
       .then((response, failure) => {
         if (failure) return; //dispatch error handler
 

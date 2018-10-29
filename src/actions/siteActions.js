@@ -1,6 +1,6 @@
 import * as types from '../constants/actionTypes';
-import superagent from 'superagent';
 import { TCMARVEL_API_BASE_URL, TC_API_BASE_URL } from '../constants/config';
+import agent from '../utils/agent';
 
 const password = process.env.REACT_APP_DASHBOARD_PASSWORD;
 
@@ -41,7 +41,7 @@ export function setMainTitle(value) {
 
 export function loadChallengeTitle(challengeId) {
   return dispatch => {
-      return superagent.get(`${TC_API_BASE_URL}/v3/challenges/${challengeId}`)
+      return agent.requests.get(`${TC_API_BASE_URL}/v3/challenges/${challengeId}`)
         .end((err, res) => {
           if (err) return;
 
@@ -52,13 +52,13 @@ export function loadChallengeTitle(challengeId) {
 
 export function loadProjectTypes() {
   return dispatch => {
-    return superagent.get(`${TCMARVEL_API_BASE_URL}/devices`)
+    return agent.requests.get(`${TCMARVEL_API_BASE_URL}/devices`)
       .end((err, res) => {
         if (err) return;
 
         dispatch(loadProjectTypesSuccess(res.body.devices));
       });
-};
+  };
 }
 
 export function loadProjectTypesSuccess(value) {
