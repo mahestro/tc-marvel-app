@@ -1,6 +1,6 @@
 export default {
   site: {
-    isAuthenticated: true,
+    isAuthenticated: false,
     mainTitle: 'Topcoder Marvelapp Management',
     projectTypes: []
   },

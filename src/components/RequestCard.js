@@ -17,7 +17,7 @@ const RequestCard = ({id, title, requestDate, memberEmail, projects, handleDelet
         {
           projects.map(project => (
             <li key={project._id}>
-              <a href={project.prototypeUrl} target="_blank" rel="noopener noreferrer">{project.projectType.projectName}</a>
+              <a href={`https://marvelapp.com/project/${project.idPrototypeMarvelApp}`} target="_blank" rel="noopener noreferrer">{project.projectType.projectName}</a>
               {
                 project.collaboratorSuccessful ?
                 <i className="icon icon--status status--success"></i> :
