@@ -142,6 +142,7 @@ class TeamForm extends Component {
         {
           !saved &&
           <section className="form">
+            <Link to={Routes.TEAMS}>Back to Teams</Link>
             <h5>Edit Team</h5>
 
             <div className="wrapper--form">

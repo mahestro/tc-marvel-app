@@ -6,6 +6,7 @@ const ProjectTypeItem = ({name, label, handleDelete}) => (
     <strong>{label}</strong>
     { ' | ' }
     <a
+      href="#nowhere"
       className="link-delete"
       onClick={handleDelete}
       name={name}

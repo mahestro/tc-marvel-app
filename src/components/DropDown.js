@@ -17,7 +17,7 @@ class DropDown extends Component {
 
     return (
       <div className="dropdown">
-        <a onClick={this.toggleDropDown}>{label}</a>
+        <a href="#nowhere" onClick={this.toggleDropDown}>{label}</a>
         {
           !this.state.isHidden && (
             <ul>

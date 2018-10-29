@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const DropDownItem = ({name, label, handleClick}) => (
-  <li><a onClick={handleClick} name={name}>{label}</a></li>
+  <li><a href="#nowhere" onClick={handleClick} name={name}>{label}</a></li>
 );
 
 DropDownItem.propTypes = {

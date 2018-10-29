@@ -1,5 +1,5 @@
 import * as types from '../constants/actionTypes';
-import { TCMARVEL_API_BASE_URL, MAIL_RECEIVER } from '../constants/config';
+import { TCMARVEL_API_BASE_URL } from '../constants/config';
 import agent from '../utils/agent';
 
 export function loadRequestsSuccess(values) {
