@@ -1,6 +1,6 @@
 import * as types from '../constants/actionTypes';
 import { TCMARVEL_API_BASE_URL, MAIL_RECEIVER } from '../constants/config';
-import agent from '../utils/agent';
+import superagent from 'superagent';
 
 export function loadRequestsSuccess(values) {
   return {
@@ -11,7 +11,7 @@ export function loadRequestsSuccess(values) {
 
 export function loadRequests(id) {
   return dispatch => {
-    return agent.requests.get(`${TCMARVEL_API_BASE_URL}/teams/${id}/requests`)
+    return superagent.get(`${TCMARVEL_API_BASE_URL}/teams/${id}/requests`)
       .end((err, res) => {
         if (err) return;
 
@@ -37,9 +37,29 @@ export function updateRequestSuccess(value) {
 export function saveRequest(request) {
   return dispatch => {
     if (typeof request.id === 'undefined') {
-      return agent.requests.post(`${TCMARVEL_API_BASE_URL}/requests/${request.idTopcoderChallenge}`, { request: request })
+      return superagent.post(`${TCMARVEL_API_BASE_URL}/requests/${request.idTopcoderChallenge}`, { request: request })
       .then((response, failure) => {
         if (failure) return; //dispatch error handler
+
+        const mailData = {
+          message: {
+            to: MAIL_RECEIVER,
+            from: request.tcEmail,
+            subject: `Marvelapp Request - ${request.idTopcoderChallenge}`,
+            text: `Request from ${request.tcHandle}, email: ${request.tcEmail}`
+          }
+        };
+
+        superagent.post(`${TCMARVEL_API_BASE_URL}/mail`, mailData)
+          .then((res, failure) => {
+            if (failure) {
+              console.log(failure);
+              return;
+            }
+          })
+          .catch(err => {
+            console.log(`Error sending email: ${err}`);
+          });
 
         dispatch(createRequestSuccess(response.body.request));
       })
@@ -47,7 +67,7 @@ export function saveRequest(request) {
         throw(err);
       });
     } else {
-      return agent.requests.put(`${TCMARVEL_API_BASE_URL}/requests/${request.idTopcoderChallenge}`, { request: request })
+      return superagent.put(`${TCMARVEL_API_BASE_URL}/requests/${request.idTopcoderChallenge}`, { request: request })
       .then((response, failure) => {
         if (failure) return; //dispatch error handler
 
@@ -69,7 +89,7 @@ export function deleteRequestSuccess(value) {
 
 export function deleteRequest(id) {
   return dispatch => {
-    return agent.requests.delete(`${TCMARVEL_API_BASE_URL}/requests/${id}`)
+    return superagent.delete(`${TCMARVEL_API_BASE_URL}/requests/${id}`)
     .then((response, failure) => {
       if (failure) return; //dispatch error handler
 

@@ -8,7 +8,7 @@ const RequestCard = ({id, title, requestDate, memberEmail, projects, handleDelet
       <div className="card__info__title">{`[${title}]`}</div>
       <div className="card__info__details">
         <div>{memberEmail}</div>
-        <div>{moment(requestDate).format('MMM Do YY, h:mm a')}</div>
+        <div>{moment(requestDate).format('MMM Do YY, h:mm')}</div>
         <div>Count: {projects[0].baseCount}</div>
       </div>
     </div>
