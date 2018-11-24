@@ -19,6 +19,14 @@ class PrototypesRequestsList extends Component {
       });
   }
 
+  handleRetry = e => {
+    e.preventDefault();
+    this.props.actions.retryRequest(e.target.name)
+      .catch(err => {
+        throw(err);
+      });
+  }
+
   render() {
     return (
       <section className="form">
@@ -31,6 +39,7 @@ class PrototypesRequestsList extends Component {
           <RequestsList
             requests={this.props.requests}
             handleDelete={this.handleDelete}
+            handleRetry={this.handleRetry}
           />
         </div>
       </section>

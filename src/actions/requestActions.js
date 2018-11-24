@@ -77,3 +77,21 @@ export function deleteRequest(id) {
     });
   }
 }
+
+export function retryRequestSuccess(value) {
+  return {
+    type: types.RETRY_REQUEST_SUCCESS,
+    payload: value
+  };
+}
+
+export function retryRequest(id) {
+  return dispatch => {
+    return agent.requests.get(`${TCMARVEL_API_BASE_URL}/requests/${id}/retry`)
+    .then((response, failure) => {
+      if (failure) return; //dispatch error handler
+
+      dispatch(retryRequestSuccess(id));
+    });
+  }
+}

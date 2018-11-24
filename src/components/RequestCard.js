@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-const RequestCard = ({id, title, requestDate, memberEmail, projects, handleDelete}) => (
+const RequestCard = ({id, title, requestDate, memberEmail, projects, handleDelete, handleRetry}) => (
   <div className="card">
     <div className="card__info">
       <div className="card__info__title">{`[${title}] #${projects[0].baseCount}`}</div>
@@ -11,7 +11,7 @@ const RequestCard = ({id, title, requestDate, memberEmail, projects, handleDelet
         <div>{moment(requestDate).format('MMM Do YY, h:mm a')}</div>
       </div>
 
-      { findError(projects) }
+      { findError(projects, id, handleRetry) }
     </div>
 
     <div className="card__links">
@@ -34,18 +34,27 @@ const RequestCard = ({id, title, requestDate, memberEmail, projects, handleDelet
   </div>
 );
 
-const findError = (projects) => {
+const findError = (projects, id, handleRetry) => {
   let errors = '';
-  let classWrapper = '';
 
   projects.map(project => {
     if (typeof project.log !== 'undefined' && project.log.length > 0) {
       errors += `${project.projectType.projectName}: ${project.log}. `;
-      classWrapper = 'card__error';
     }
+
+    return '';
   });
 
-  return <div className={classWrapper}>{errors}</div>;
+  if (errors !== '') {
+    return (
+      <div>
+        <div className="card__error">
+          {errors}
+        </div>
+        <a href="#nowhere" name={id} onClick={handleRetry}>Retry Operation</a>
+      </div>
+    );
+  }
 }
 
 RequestCard.propTypes = {
@@ -53,7 +62,8 @@ RequestCard.propTypes = {
   title: PropTypes.string.isRequired,
   requestDate: PropTypes.string.isRequired,
   memberEmail: PropTypes.string.isRequired,
-  handleDelete: PropTypes.func.isRequired
+  handleDelete: PropTypes.func.isRequired,
+  handleRetry: PropTypes.func
 };
 
 export default RequestCard;

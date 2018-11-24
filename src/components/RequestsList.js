@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RequestCard from './RequestCard';
 
-const RequestsList = ({requests, handleDelete}) => (
+const RequestsList = ({requests, handleDelete, handleRetry}) => (
   requests.map(request => (
     <RequestCard
       key={request.id}
@@ -13,6 +13,7 @@ const RequestsList = ({requests, handleDelete}) => (
       requests={request.baseCount}
       projects={request.projects}
       handleDelete={handleDelete}
+      handleRetry={handleRetry}
     />
   ))
 );
