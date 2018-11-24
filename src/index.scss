@@ -234,6 +234,14 @@ section.message {
   margin-top: $base-unit * 7;
 }
 
+.card__error {
+  margin-top:       $base-unit * 3;
+  padding:          $base-unit;
+  background-color: $color-lighter-grey;
+  color:            $color-error;
+  border-radius:    $corner-radius;
+}
+
 /*------------------------------------
 FORM
 ------------------------------------*/

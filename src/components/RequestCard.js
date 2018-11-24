@@ -10,6 +10,8 @@ const RequestCard = ({id, title, requestDate, memberEmail, projects, handleDelet
         <div>{memberEmail}</div>
         <div>{moment(requestDate).format('MMM Do YY, h:mm a')}</div>
       </div>
+
+      { findError(projects) }
     </div>
 
     <div className="card__links">
@@ -31,6 +33,20 @@ const RequestCard = ({id, title, requestDate, memberEmail, projects, handleDelet
     </div>
   </div>
 );
+
+const findError = (projects) => {
+  let errors = '';
+  let classWrapper = '';
+
+  projects.map(project => {
+    if (typeof project.log !== 'undefined' && project.log.length > 0) {
+      errors += `${project.projectType.projectName}: ${project.log}. `;
+      classWrapper = 'card__error';
+    }
+  });
+
+  return <div className={classWrapper}>{errors}</div>;
+}
 
 RequestCard.propTypes = {
   id: PropTypes.string.isRequired,

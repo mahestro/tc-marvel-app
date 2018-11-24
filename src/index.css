@@ -362,6 +362,13 @@ section.message {
 .card-list-wrapper {
   margin-top: 35px; }
 
+.card__error {
+  margin-top: 15px;
+  padding: 5px;
+  background-color: #FCFCFE;
+  color: #F22E24;
+  border-radius: 2px; }
+
 /*------------------------------------
 FORM
 ------------------------------------*/
