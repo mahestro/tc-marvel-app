@@ -9,8 +9,7 @@ const RequestError = () => {
         className="icon--xlarge" />
 
       <h5>Oops.. Something went wrong</h5>
-      <p>Please contact your copilot at <strong>mahestro.topcoder@gmail.com</strong></p>
-      <p>Send an email including the challenge name and your Topcoder handle.</p>
+      <p>Please contact your copilot on the forums</p>
     </section>
   );
 }

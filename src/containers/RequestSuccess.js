@@ -14,7 +14,7 @@ const RequestSuccess = () => {
 
         <p>
           You will receive an invite <strong>within the next 30 minutes</strong>.<br />
-          If don't receive an email in that time, contact your copilot at mahestro.topcoder@gmail.com
+          If don't receive an email in that time, contact your copilot on the forums
         </p>
         <div className="sep"></div>
         <div className="typography-lead">What's next?</div>
